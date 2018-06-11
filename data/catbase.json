@@ -1,0 +1,173 @@
+{
+    "kocicaci": [
+        
+        {
+            "id": 1,
+            "meno": "Fedorko",
+            "vek": "mačiatko",
+            "pohlavie": "kocúr",
+            "plemeno": "mačka domáca",
+            "farba": "čierno-biela",
+            "sterilizacia": "áno",
+            "ockovanie": "áno",
+            "hendikep": "nie",
+            "pribeh": "Príbeh o Fedorkovi",
+            "titulnaFotka": "fedík s úsmevom.jpg",
+            "fotky": [
+                "fedík s úsmevom.jpg",
+                "fedik_icon.png"
+            ],                       
+            "okres": "Bratislava",
+            "utulok": "Ivanka's Cat House",
+            "datum": "11.6.2018"
+        },
+        
+        {
+            "id": 2,
+            "meno": "Félixko",
+            "vek": "mačiatko",
+            "pohlavie": "kocúr",
+            "plemeno": "mačka domáca",
+            "sterilizacia": "áno",
+            "ockovanie": "nie",
+            "hendikep": "nie",
+            "farba": "čierno-biela",
+            "pribeh": "Príbeh o Félixkovi",
+            "titulnaFotka": "felixko.jpg",
+            "fotky": [
+                "felixko a fedik.jpg",
+                "felixko.jpg"
+            ],                      
+            "okres": "Trenčín",
+            "utulok": "Andrej's Cat House",
+            "datum": "11.6.2018"
+        },
+
+        {
+            "id": 1,
+            "meno": "Fedorko",
+            "vek": "mačiatko",
+            "pohlavie": "kocúr",
+            "plemeno": "mačka domáca",
+            "farba": "čierno-biela",
+            "sterilizacia": "áno",
+            "ockovanie": "áno",
+            "hendikep": "nie",
+            "pribeh": "Príbeh o Fedorkovi",
+            "titulnaFotka": "fedík s úsmevom.jpg",
+            "fotky": [
+                "fedík s úsmevom.jpg",
+                "fedik_icon.png"
+            ],                       
+            "okres": "Bratislava",
+            "utulok": "Ivanka's Cat House",
+            "datum": "11.6.2018"
+        },
+        
+        {
+            "id": 2,
+            "meno": "Félixko",
+            "vek": "mačiatko",
+            "pohlavie": "kocúr",
+            "plemeno": "mačka domáca",
+            "sterilizacia": "áno",
+            "ockovanie": "nie",
+            "hendikep": "nie",
+            "farba": "čierno-biela",
+            "pribeh": "Príbeh o Félixkovi",
+            "titulnaFotka": "felixko.jpg",
+            "fotky": [
+                "felixko a fedik.jpg",
+                "felixko.jpg"
+            ],                      
+            "okres": "Trenčín",
+            "utulok": "Andrej's Cat House",
+            "datum": "11.6.2018"
+        },
+        
+        {
+            "id": 1,
+            "meno": "Fedorko",
+            "vek": "mačiatko",
+            "pohlavie": "kocúr",
+            "plemeno": "mačka domáca",
+            "farba": "čierno-biela",
+            "sterilizacia": "áno",
+            "ockovanie": "áno",
+            "hendikep": "nie",
+            "pribeh": "Príbeh o Fedorkovi",
+            "titulnaFotka": "fedík s úsmevom.jpg",
+            "fotky": [
+                "fedík s úsmevom.jpg",
+                "fedik_icon.png"
+            ],                       
+            "okres": "Bratislava",
+            "utulok": "Ivanka's Cat House",
+            "datum": "11.6.2018"
+        },
+        
+        {
+            "id": 2,
+            "meno": "Félixko",
+            "vek": "mačiatko",
+            "pohlavie": "kocúr",
+            "plemeno": "mačka domáca",
+            "sterilizacia": "áno",
+            "ockovanie": "nie",
+            "hendikep": "nie",
+            "farba": "čierno-biela",
+            "pribeh": "Príbeh o Félixkovi",
+            "titulnaFotka": "felixko.jpg",
+            "fotky": [
+                "felixko a fedik.jpg",
+                "felixko.jpg"
+            ],                      
+            "okres": "Trenčín",
+            "utulok": "Andrej's Cat House",
+            "datum": "11.6.2018"
+        },
+        
+        {
+            "id": 1,
+            "meno": "Fedorko",
+            "vek": "mačiatko",
+            "pohlavie": "kocúr",
+            "plemeno": "mačka domáca",
+            "farba": "čierno-biela",
+            "sterilizacia": "áno",
+            "ockovanie": "áno",
+            "hendikep": "nie",
+            "pribeh": "Príbeh o Fedorkovi",
+            "titulnaFotka": "fedík s úsmevom.jpg",
+            "fotky": [
+                "fedík s úsmevom.jpg",
+                "fedik_icon.png"
+            ],                       
+            "okres": "Bratislava",
+            "utulok": "Ivanka's Cat House",
+            "datum": "11.6.2018"
+        },
+        
+        {
+            "id": 2,
+            "meno": "Félixko",
+            "vek": "mačiatko",
+            "pohlavie": "kocúr",
+            "plemeno": "mačka domáca",
+            "sterilizacia": "áno",
+            "ockovanie": "nie",
+            "hendikep": "nie",
+            "farba": "čierno-biela",
+            "pribeh": "Príbeh o Félixkovi",
+            "titulnaFotka": "felixko.jpg",
+            "fotky": [
+                "felixko a fedik.jpg",
+                "felixko.jpg"
+            ],                      
+            "okres": "Trenčín",
+            "utulok": "Andrej's Cat House",
+            "datum": "11.6.2018"
+        }
+        
+    ]
+}
