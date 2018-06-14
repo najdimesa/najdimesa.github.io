@@ -6,8 +6,8 @@
 
 body {
 	display: none;
-	color: green;
-    background-color: rgb(211, 252, 219);
+	color: rgb(15, 15, 15);
+    background-color: rgb(145, 145, 145);
     height: 100vh;
     padding: 8px;
     
@@ -21,7 +21,7 @@ body {
 .main {
     padding: 25px;
     background-color: white;
-    border: 5px solid rgb(66, 181, 66);
+    border: 5px solid rgb(15, 15, 15);
     border-radius: 12.5px 50px;
     height: 100%;
     display: flex;
@@ -33,7 +33,7 @@ body {
 }
 
 .table-wrapper {
-    background-color: rgb(211, 252, 219);    
+    background-color: rgb(145, 145, 145);    
     border-radius: 5px;
     margin: 8px 0;
     padding: 4px;
@@ -45,12 +45,12 @@ body {
 .table {
     width: 100%;
     overflow: auto;
-    background-color: rgba(154, 255, 173, 0.24);
+    //background-color: rgba(154, 255, 173, 0.24);
 }
 
 .kocicak {
     background-color: white;
-    border: 1px solid rgb(66, 181, 66);
+    border: 1px solid rgb(15, 15, 15);
     border-radius: 5px;
     padding: 8px;
     display: flex;
