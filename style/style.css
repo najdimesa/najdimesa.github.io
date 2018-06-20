@@ -82,3 +82,8 @@ body {
 .popis {
     margin-left: 8px;
 }
+
+.filter {
+    width: 200px;
+    height: 16px;
+}
