@@ -38,13 +38,13 @@ function nastavTabulku(databaza) {
 }
 
 function catbaseFilter() {
-    var catbaseFilterName = document.getElementById("catbaseFilter").value;
+    var catbaseFilterName = document.getElementById("catbaseFilter-Meno").value;
     filteredCatBase.kocicaci = catbase.kocicaci.filter(function (kocicak) { return kocicak.meno === catbaseFilterName || catbaseFilterName == "";});
-    nastavTabulku(filteredCatBase);
 }
 
 function filter() {
     catbaseFilter();
+    nastavTabulku(filteredCatBase);
     
 }
 
