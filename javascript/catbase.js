@@ -1,5 +1,5 @@
 var zobrazenaTabulka, macaciaTabulka, kocicakForma, kocicak, titulnaFotka;
-var catbase = {}, filteredCatBase = {};
+var catbase = {}, filteredCatBase = {}, vekCombobox = {}, pohlavieCombobox = {};
 
 
 function nastavTabulku(databaza) {
@@ -44,8 +44,21 @@ function catbaseFilter() {
 
 function filter() {
     catbaseFilter();
-    nastavTabulku(filteredCatBase);
-    
+    nastavTabulku(filteredCatBase);   
+}
+
+function nastavCombobox(id, hodnoty) {
+        var filterComboboxElement = document.getElementById(id);
+    var hodnotaFiltraPrazdna = document.createElement("option");
+            hodnotaFiltraPrazdna.value = "";
+            hodnotaFiltraPrazdna.innerHTML = "";
+            filterComboboxElement.appendChild(hodnotaFiltraPrazdna)
+        hodnoty.forEach(function(hodnota) {
+            var hodnotaFiltra = document.createElement("option");
+            hodnotaFiltra.value = hodnota;
+            hodnotaFiltra.innerHTML = hodnota;
+            filterComboboxElement.appendChild(hodnotaFiltra);
+        });    
 }
 
 $(document).ready(function () {
@@ -53,5 +66,11 @@ $(document).ready(function () {
     $.getJSON('../data/catbase.json', function (data) {
         catbase = data;
         nastavTabulku(catbase);
+        vekCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.vek));
+        nastavCombobox("catbaseFilter-Vek", vekCombobox);
+        pohlavieCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.pohlavie));
+        nastavCombobox("catbaseFilter-Pohlavie", pohlavieCombobox);
+
+        
     });
 });
