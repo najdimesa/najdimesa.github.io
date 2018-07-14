@@ -1,5 +1,5 @@
 var zobrazenaTabulka, macaciaTabulka, kocicakForma, kocicak, titulnaFotka;
-var catbase = {}, filteredCatBase = {}, vekCombobox = {}, pohlavieCombobox = {};
+var catbase = {}, filteredCatBase = {}, vekCombobox = {}, pohlavieCombobox = {}, plemenoCombobox = {}, farbaCombobox = {}, sterilizaciaCombobox = {}, ockovanieCombobox = {}, hendikepCombobox = {}, okresCombobox = {}, utulokCombobox = {};
 
 
 function nastavTabulku(databaza) {
@@ -40,6 +40,33 @@ function nastavTabulku(databaza) {
 function catbaseFilter() {
     var catbaseFilterName = document.getElementById("catbaseFilter-Meno").value;
     filteredCatBase.kocicaci = catbase.kocicaci.filter(function (kocicak) { return kocicak.meno === catbaseFilterName || catbaseFilterName == "";});
+    
+    var catbaseFilterVek = document.getElementById("catbaseFilter-Vek").value;
+    filteredCatBase.kocicaci = filteredCatBase.kocicaci.filter(function (kocicak) { return kocicak.vek === catbaseFilterVek || catbaseFilterVek == "";});
+    
+    var catbaseFilterPohlavie = document.getElementById("catbaseFilter-Pohlavie").value;
+    filteredCatBase.kocicaci = filteredCatBase.kocicaci.filter(function (kocicak) { return kocicak.pohlavie === catbaseFilterPohlavie || catbaseFilterPohlavie == "";});
+    
+        var catbaseFilterPlemeno = document.getElementById("catbaseFilter-Plemeno").value;
+    filteredCatBase.kocicaci = filteredCatBase.kocicaci.filter(function (kocicak) { return kocicak.plemeno === catbaseFilterPlemeno || catbaseFilterPlemeno == "";});
+    
+        var catbaseFilterFarba = document.getElementById("catbaseFilter-Farba").value;
+    filteredCatBase.kocicaci = filteredCatBase.kocicaci.filter(function (kocicak) { return kocicak.farba === catbaseFilterFarba || catbaseFilterFarba == "";});
+    
+        var catbaseFilterSterilizacia = document.getElementById("catbaseFilter-Sterilizacia").value;
+    filteredCatBase.kocicaci = filteredCatBase.kocicaci.filter(function (kocicak) { return kocicak.sterilizacia === catbaseFilterSterilizacia || catbaseFilterSterilizacia == "";});
+    
+        var catbaseFilterOckovanie = document.getElementById("catbaseFilter-Ockovanie").value;
+    filteredCatBase.kocicaci = filteredCatBase.kocicaci.filter(function (kocicak) { return kocicak.ockovanie === catbaseFilterOckovanie || catbaseFilterOckovanie == "";});
+    
+        var catbaseFilterHendikep = document.getElementById("catbaseFilter-Hendikep").value;
+    filteredCatBase.kocicaci = filteredCatBase.kocicaci.filter(function (kocicak) { return kocicak.hendikep === catbaseFilterHendikep || catbaseFilterHendikep == "";});
+    
+        var catbaseFilterOkres = document.getElementById("catbaseFilter-Okres").value;
+    filteredCatBase.kocicaci = filteredCatBase.kocicaci.filter(function (kocicak) { return kocicak.okres === catbaseFilterOkres || catbaseFilterOkres == "";});
+
+            var catbaseFilterUtulok = document.getElementById("catbaseFilter-Utulok").value;
+    filteredCatBase.kocicaci = filteredCatBase.kocicaci.filter(function (kocicak) { return kocicak.utulok === catbaseFilterUtulok || catbaseFilterUtulok == "";});
 }
 
 function filter() {
@@ -47,11 +74,11 @@ function filter() {
     nastavTabulku(filteredCatBase);   
 }
 
-function nastavCombobox(id, hodnoty) {
+function nastavCombobox(id, hodnoty, text) {
         var filterComboboxElement = document.getElementById(id);
     var hodnotaFiltraPrazdna = document.createElement("option");
             hodnotaFiltraPrazdna.value = "";
-            hodnotaFiltraPrazdna.innerHTML = "";
+            hodnotaFiltraPrazdna.innerHTML = text;
             filterComboboxElement.appendChild(hodnotaFiltraPrazdna)
         hodnoty.forEach(function(hodnota) {
             var hodnotaFiltra = document.createElement("option");
@@ -67,10 +94,29 @@ $(document).ready(function () {
         catbase = data;
         nastavTabulku(catbase);
         vekCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.vek));
-        nastavCombobox("catbaseFilter-Vek", vekCombobox);
+        nastavCombobox("catbaseFilter-Vek", vekCombobox, "Vek");
         pohlavieCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.pohlavie));
-        nastavCombobox("catbaseFilter-Pohlavie", pohlavieCombobox);
+        nastavCombobox("catbaseFilter-Pohlavie", pohlavieCombobox, "Pohlavie");
 
+        plemenoCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.plemeno));
+        nastavCombobox("catbaseFilter-Plemeno", plemenoCombobox, "Plemeno");
+
+        farbaCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.farba));
+        nastavCombobox("catbaseFilter-Farba", farbaCombobox, "Farba");
         
+        sterilizaciaCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.sterilizacia));
+        nastavCombobox("catbaseFilter-Sterilizacia", sterilizaciaCombobox, "Sterilizacia");
+        
+        ockovanieCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.ockovanie));
+        nastavCombobox("catbaseFilter-Ockovanie", ockovanieCombobox, "Očkovanie");
+
+        hendikepCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.hendikep));
+        nastavCombobox("catbaseFilter-Hendikep", hendikepCombobox, "Hendikep");
+
+        okresCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.okres));
+        nastavCombobox("catbaseFilter-Okres", okresCombobox, "Okres");
+
+        utulokCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.utulok));
+        nastavCombobox("catbaseFilter-Utulok", utulokCombobox, "Útulok");
     });
 });

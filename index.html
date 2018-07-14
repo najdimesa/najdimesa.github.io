@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html>
     <head>
-    </head>
-    <body>
-       <script>
-    $(document).ready(function(){
-    window.location.replace("http://najdimesa.ihostfull.com/");
-});    
-        </script>     
+		<link rel="stylesheet" type="text/css" href="style/style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="javascript/basic.js"></script>
+		<script src="javascript/catbase.js"></script>
+	</head>
+    <body class="all">
+        <div class="main">
+            <h1>Hello World</h1>
+            <img class="titleImg" src="images\fedik a felixko.jpg">
+            <div class="filter">
+                <input id="catbaseFilter-Meno" type="text" placeholder="Meno">
+                <select id="catbaseFilter-Vek" type="text" placeholder="Vek">
+                </select>
+                <select id="catbaseFilter-Pohlavie" type="text" placeholder="Pohlavie">
+                </select>
+                <select id="catbaseFilter-Plemeno" type="text" placeholder="Plemeno">
+                </select>
+                <select id="catbaseFilter-Farba" type="text" placeholder="Farba">
+                </select>
+                <select id="catbaseFilter-Sterilizacia" type="text" placeholder="Sterilizacia">
+                </select>
+                <select id="catbaseFilter-Ockovanie" type="text" placeholder="Ockovanie">
+                </select>
+                <select id="catbaseFilter-Hendikep" type="text" placeholder="Hendikep">
+                </select>
+                <select id="catbaseFilter-Okres" type="text" placeholder="Okres">
+                </select>
+                <select id="catbaseFilter-Utulok" type="text" placeholder="Utulok">
+                </select>
+                <button type="button" onclick="filter()">
+                    Filtruj
+                </button>
+            </div>
+            <div class="table-wrapper">
+                <div id="cat-table" class="table">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="hidden">
+                        <div id="kocicak-forma" class="kocicak">
+                            <div class="meno">
+                            </div>
+                            <div class="obsah">
+                                <div class="titulna-fotka">
+                                </div>
+                                <div class="popis">
+                                    <div class="vek">
+                                    </div>
+                                    <div class="plemeno">
+                                    </div>
+                                    <div class="utulok">
+                                    </div>
+                                    <div class="pribeh">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                    
+                    </div>
     </body>
 </html>
