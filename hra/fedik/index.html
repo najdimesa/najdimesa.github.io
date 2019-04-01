@@ -21,23 +21,25 @@
 <script>    
     const LEFT = 37, RIGHT = 39, UP = 38, DOWN = 40; 
     let scene, camera, renderer, light;
-    let particles = []
+    let cat = []
     let ADD = 0.2;
+    let angle = 0;
+    let dangle = 45;
     
     let randomInRange = function(from, to) {
         let x = Math.random() * (to - from);
         return x + from;
     };
     
-    class Particle {
+    class Cat {
         constructor() {
             let geometry = new THREE.SphereGeometry(0.5, 30, 30);
-            let material = new THREE.MeshPhongMaterial({color: 0Xffffff, shininess: 100, specular: 0xafeeee, side: THREE.DoubleSide});
+            let material = new THREE.MeshPhongMaterial({color: 0Xabcdef, shininess: 100, specular: 0x123456, side: THREE.DoubleSide});
             this.mesh = new THREE.Mesh(geometry, material);
             
-            this.mesh.position.x = randomInRange(-15, 15);
-            this.mesh.position.y = randomInRange(-5, 5);
-            this.mesh.position.z = randomInRange(-10, 10);
+            this.mesh.position.x = randomInRange(0, 0);
+            this.mesh.position.y = randomInRange(0, 0);
+            this.mesh.position.z = randomInRange(0, 0);
             this.radius = this.mesh.position.x;
             
             this.theta = 0;
@@ -46,24 +48,39 @@
         }
     
         move() {
+            /*
             this.mesh.position.y =  this.radius * Math.sin(this.theta + this.yFactor);
             this.mesh.position.x =  this.radius * Math.sin(this.theta);
             this.mesh.position.z = this.radius * Math.cos(this.theta);
             this.theta += this.dTheta;
+            */
+            
         }
     };
     
     let onKeyDown = function(e) {
+        let radius = 20;
         if(e.keyCode == UP) 
             camera.position.z -= ADD;  
         else if(e.keyCode == DOWN) 
             camera.position.z += ADD;  
+        else if(e.keyCode == RIGHT) {
+            angle += dangle;
+            camera.position.z = radius * Math.cos(angle);
+            camera.position.x = radius * Math.sin(angle);
+        }
+        else if(e.keyCode == LEFT) {
+            angle -= dangle;
+            camera.position.z = radius * Math.cos(angle);
+            camera.position.x =  radius * Math.sin(angle);
+        }
+        camera.lookAt(cat[0].mesh.position);
     };
     
     let createGeometry = function() { 
-        for(let i = 1; i <= 30; i++) {
-            let p = new Particle();
-            particles.push(p);
+        for(let i = 1; i <= 1; i++) {
+            let p = new Cat();
+            cat.push(p);
             scene.add(p.mesh);
         }
     };
@@ -74,7 +91,7 @@
     let init = function() {
         // create the scene
         scene = new THREE.Scene();
-        scene.background = new THREE.Color(0x000000);
+        scene.background = new THREE.Color(0x0000FF);
         
         // create an locate the camera
         camera = new THREE.PerspectiveCamera(75, 
@@ -82,12 +99,17 @@
                         1, 1000);
         camera.position.z = 20;
     
-        light = new THREE.PointLight(0xffffff, 2, 30, 2);
+        light = new THREE.PointLight(0xffffff, 2, 50, 2);
         
         let light2 = new THREE.PointLight(0xffffff, 2, 30, 2);
         let light3 = new THREE.PointLight(0xffffff, 2, 30, 2);
         light2.position.y = 10;
         light3.position.y = -10;
+        
+        light.position.x = camera.position.x;
+        light.position.y = camera.position.y;
+        light.position.z = camera.position.z;
+        
         
         scene.add(light);
         scene.add(light2);
@@ -106,7 +128,7 @@
     
     // main animation loop - calls 50-60 times per second.
     let mainLoop = function() {
-        particles.forEach(p => p.move());
+        cat.forEach(p => p.move());
         
         renderer.render(scene, camera);
         requestAnimationFrame(mainLoop);
@@ -114,23 +136,7 @@
     
     ///////////////////////////////////////////////
     init();
-    mainLoop();
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    mainLoop();    
     
 </script>
 
