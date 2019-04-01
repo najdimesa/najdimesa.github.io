@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		 <meta http-equiv="content-type" content="text/html; charset=utf-8"> 
+		<link rel="stylesheet" type="text/css" href="style/style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="javascript/basic.js"></script>
+	</head>
+    <body class="all">
+        <div class="main" style="overflow:auto;">
+            <form enctype="multipart/form-data" action="http://najdimesa.ihostfull.com/pridaj.php" method="POST">
+                <div class="titulka">
+                    <h1 style="display: inline-block; line-height:100px;">Pridaj kočičáka do databázy</h1>
+                    <img src="images\fedik a felixko.jpg" style="height:100px; margin-bottom: -38px;">
+                </div>
+                <br />
+                <div>
+                    Meno:
+                    <br /><input type="text" name="meno" oninput="pridajMeno()">
+                </div>
+                <br />
+                <div>
+                    Vek: (mačiatko)
+                    <br /><input type="text" name="vek">
+                </div>
+                <br />
+                <div>
+                    Pohlavie:
+                    <br /><select name="pohlavie">
+                        <option val="kocúr">kocúr</option>
+                        <option val="mačka">mačka</option>
+                    </select>
+                </div>
+                <br />
+                <div>
+                    Plemeno:
+                    <br /><input type="text" name="plemeno">
+                </div>
+                <br />
+                <div>
+                    Farba:
+                    <br /><input type="text" name="farba">
+                </div>
+                <br />
+                <div>
+                    Sterilizácia:
+                    <br /><select name="sterilizacia">
+                        <option val="neuvedené">neuvedené</option>
+                        <option val="áno">áno</option>
+                        <option val="nie">nie</option>
+                    </select>
+                </div>
+                <br />
+                <div>
+                    Očkovanie:
+                    <br /><select name="ockovanie">
+                        <option val="neuvedené">neuvedené</option>
+                        <option val="áno">áno</option>
+                        <option val="nie">nie</option>
+                    </select>
+                </div>
+                <br />
+                <div>
+                    Hendikep:
+                    <br /><select name="hendikep">
+                        <option val="neuvedené">neuvedené</option>
+                        <option val="áno">áno</option>
+                        <option val="nie">nie</option>
+                    </select>
+                </div>
+                <br />
+                <div>
+                    Príbeh:
+                    <br />
+                    <textarea rows="10"  style="width:100%;" name="pribeh"></textarea>
+                </div>
+                <br />
+                <div>
+                    Okres:
+                    <br /><input type="text" name="okres">
+                </div>
+                <br />
+                <div>
+                    Útulok:
+                    <br /><input type="text" name="utulok">
+                </div>
+                <br />
+                <div>
+                    Profilová fotografia:
+                    <br /><input type="file" name="profilovaFotka">
+                </div>
+                <br />                
+                <div id="fotky">
+                    Ďalšie fotografie:
+                    <br /><input type="file" name="fotka2">
+                    <br /><input type="file" name="fotka3">
+                    <br /><input type="file" name="fotka4">
+                </div>
+                <br />
+                <div>
+                    <button type="button" onclick="pridajFotku()">
+                        Pridať ďalšiu fotku?
+                    </button>
+                </div>
+                <br />
+                <div>
+                    Dátum:
+                    <br /><input type="text" name="datum" value="">
+                </div>
+                <br />
+                <br />
+                <div>
+                    <input type="submit" value="Ulož kočičáka" style="min-width: 150px;">
+                </div>   
+                <br />
+                <div>
+                    id: <input type="text" name="idKocicaka" value="">
+                </div>
+            </form>
+        </div>
+        
+        <script>
+            var datum = new Date();
+            var den = datum.getDate();
+            var mesiac = (datum.getMonth() + 1);
+            var rok = datum.getFullYear();
+            var hodina = datum.getHours();
+            var minuta = datum.getMinutes();
+            var sekunda = datum.getSeconds();
+            var dnes = den + "." + mesiac + "." + rok;
+            var fotiek = 4;
+            
+            document.getElementsByName("datum")[0].value = dnes;
+            var id = rok + "-" + mesiac + "-" + den + "_" + hodina + "-" + minuta + "-" + sekunda;
+            var meno = document.getElementsByName("meno")[0].value;
+            document.getElementsByName("idKocicaka")[0].value = meno ? meno + "-" + id : id;
+            document.getElementsByName("idKocicaka")[0].title = meno ? meno + "-" + id : id;
+            
+            
+            function pridajMeno() {
+                var meno = document.getElementsByName("meno")[0].value;
+                document.getElementsByName("idKocicaka")[0].value = meno ? meno + "-" + id : id;
+                document.getElementsByName("idKocicaka")[0].title = meno ? meno + "-" + id : id;
+            }
+            
+            function pridajFotku() {
+                var divPreFotky = document.getElementById("fotky");
+                divPreFotky.appendChild(document.createElement("br"));
+                var dalsiaFotka = document.createElement("input");
+                dalsiaFotka.type = "file";
+                fotiek = fotiek + 1;
+                dalsiaFotka.name = "fotka" + fotiek;                
+                divPreFotky.appendChild(dalsiaFotka);
+            }
+        </script>
+    </body>
+</html>

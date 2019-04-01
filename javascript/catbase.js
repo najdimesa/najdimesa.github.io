@@ -1,6 +1,6 @@
 var zobrazenaTabulka, macaciaTabulka, kocicakForma, kocicak, titulnaFotka;
-var catbase = {}, filteredCatBase = {}, vekCombobox = {}, pohlavieCombobox = {}, plemenoCombobox = {}, farbaCombobox = {}, sterilizaciaCombobox = {}, ockovanieCombobox = {}, hendikepCombobox = {}, okresCombobox = {}, utulokCombobox = {};
-
+var catbase = {}, filteredCatBase = {}, vekCombobox = {}, pohlavieCombobox = {}, plemenoCombobox = {}, farbaCombobox = {}, sterilizaciaCombobox = {}, ockovanieCombobox = {}, hendikepCombobox = {}, okresCombobox = {}, utulokCombobox = {}, plemenoCheckbox = {};
+var zbalenyFilter = true;
 
 function nastavTabulku(databaza) {
     "use strict";
@@ -88,35 +88,84 @@ function nastavCombobox(id, hodnoty, text) {
         });    
 }
 
+function nastavCheckbox(id, hodnoty, text) {
+    var filterComboboxElement = document.getElementById(id);
+
+    var hodnotaFiltraPrazdnaText = document.createElement("div");
+    hodnotaFiltraPrazdnaText.classList.add("checkbox-text");
+    hodnotaFiltraPrazdnaText.innerHTML = text;
+    
+    var hodnotaFiltraPrazdna = document.createElement("INPUT");
+    hodnotaFiltraPrazdna.classList.add("checkbox-tlacidlo");
+    hodnotaFiltraPrazdna.setAttribute("type", "checkbox");
+    hodnotaFiltraPrazdna.value = "";
+    hodnotaFiltraPrazdna.checked = true;
+    
+    filterComboboxElement.appendChild(hodnotaFiltraPrazdnaText);
+    filterComboboxElement.appendChild(hodnotaFiltraPrazdna);
+
+    hodnoty.forEach(function(hodnota) {
+        var medzera = document.createElement("br");
+        
+        var hodnotaFiltraText = document.createElement("div");
+        hodnotaFiltraText.classList.add("checkbox-text");
+        hodnotaFiltraText.innerHTML = hodnota;
+        
+        var hodnotaFiltra = document.createElement("INPUT");
+        hodnotaFiltra.setAttribute("type", "checkbox");
+        hodnotaFiltra.value = "hodnota";
+        hodnotaFiltra.checked = false;
+        
+        filterComboboxElement.appendChild(medzera);
+        filterComboboxElement.appendChild(hodnotaFiltraText);
+        filterComboboxElement.appendChild(hodnotaFiltra);
+    });  
+}
+
+function zbalARozbalFilter(id) {
+    zbalenyFilter = !zbalenyFilter;
+    if (zbalenyFilter) {
+        $("#" + id).removeClass("rozbaleny");
+        $("#" + id).addClass("zabaleny");        
+    }
+    else {
+        $("#" + id).removeClass("zabaleny");
+        $("#" + id).addClass("rozbaleny");        
+    }
+}
+
 $(document).ready(function () {
     "use strict";
-    $.getJSON('../data/catbase.json', function (data) {
+    $.getJSON('data/catbase.json', function (data) {
         catbase = data;
         nastavTabulku(catbase);
-        vekCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.vek));
-        nastavCombobox("catbaseFilter-Vek", vekCombobox, "Vek");
-        pohlavieCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.pohlavie));
-        nastavCombobox("catbaseFilter-Pohlavie", pohlavieCombobox, "Pohlavie");
+        vekCombobox = jQuery.unique(catbase.kocicaci.map(function(kocicak) { return kocicak.vek;}));
+        nastavCombobox("catbaseFilter-Vek", vekCombobox, "Nerozhoduje");
+        pohlavieCombobox = jQuery.unique(catbase.kocicaci.map(function(kocicak) { return kocicak.pohlavie;}));
+        nastavCombobox("catbaseFilter-Pohlavie", pohlavieCombobox, "Nerozhoduje");
 
-        plemenoCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.plemeno));
+        plemenoCombobox = jQuery.unique(catbase.kocicaci.map(function(kocicak) { return kocicak.plemeno;}));
         nastavCombobox("catbaseFilter-Plemeno", plemenoCombobox, "Plemeno");
+        
+        plemenoCheckbox = plemenoCombobox;
+        nastavCheckbox("catbaseFilter-PlemenoCheckbox", plemenoCheckbox, "Nerozhoduje");
 
-        farbaCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.farba));
+        farbaCombobox = jQuery.unique(catbase.kocicaci.map(function(kocicak) { return kocicak.farba;}));
         nastavCombobox("catbaseFilter-Farba", farbaCombobox, "Farba");
         
-        sterilizaciaCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.sterilizacia));
-        nastavCombobox("catbaseFilter-Sterilizacia", sterilizaciaCombobox, "Sterilizacia");
+        sterilizaciaCombobox = jQuery.unique(catbase.kocicaci.map(function(kocicak) { return kocicak.sterilizacia;}));
+        nastavCombobox("catbaseFilter-Sterilizacia", sterilizaciaCombobox, "Nerozhoduje");
         
-        ockovanieCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.ockovanie));
-        nastavCombobox("catbaseFilter-Ockovanie", ockovanieCombobox, "Očkovanie");
+        ockovanieCombobox = jQuery.unique(catbase.kocicaci.map(function(kocicak) { return kocicak.ockovanie;}));
+        nastavCombobox("catbaseFilter-Ockovanie", ockovanieCombobox, "Nerozhoduje");
 
-        hendikepCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.hendikep));
-        nastavCombobox("catbaseFilter-Hendikep", hendikepCombobox, "Hendikep");
+        hendikepCombobox = jQuery.unique(catbase.kocicaci.map(function(kocicak) { return kocicak.hendikep;}));
+        nastavCombobox("catbaseFilter-Hendikep", hendikepCombobox, "Nerozhoduje");
 
-        okresCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.okres));
+        okresCombobox = jQuery.unique(catbase.kocicaci.map(function(kocicak) { return kocicak.okres;}));
         nastavCombobox("catbaseFilter-Okres", okresCombobox, "Okres");
 
-        utulokCombobox = jQuery.unique(catbase.kocicaci.map(kocicak => kocicak.utulok));
+        utulokCombobox = jQuery.unique(catbase.kocicaci.map(function(kocicak) { return kocicak.utulok;}));
         nastavCombobox("catbaseFilter-Utulok", utulokCombobox, "Útulok");
     });
 });

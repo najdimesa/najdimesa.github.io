@@ -3,38 +3,89 @@
     <head>
          <meta http-equiv="content-type" content="text/html; charset=utf-8"> 
 		<link rel="stylesheet" type="text/css" href="style/style.css">
+        <!--[if IE]><link rel="shortcut icon" href="images/najdimesa.png"><![endif]-->
+        <link rel="apple-touch-icon-precomposed" href="images/najdimesa.png">
+        <link rel="icon" href="images/najdimesa.png">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="javascript/basic.js"></script>
 		<script src="javascript/catbase.js"></script>
 	</head>
     <body class="all">
         <div class="main">
-            <h1>Hello World</h1>
-            <img class="titleImg" src="images\fedik a felixko.jpg">
-            <div class="filter">
-                <input id="catbaseFilter-Meno" type="text" placeholder="Meno">
-                <select id="catbaseFilter-Vek" type="text" placeholder="Vek">
-                </select>
-                <select id="catbaseFilter-Pohlavie" type="text" placeholder="Pohlavie">
-                </select>
-                <select id="catbaseFilter-Plemeno" type="text" placeholder="Plemeno">
-                </select>
-                <select id="catbaseFilter-Farba" type="text" placeholder="Farba">
-                </select>
-                <select id="catbaseFilter-Sterilizacia" type="text" placeholder="Sterilizacia">
-                </select>
-                <select id="catbaseFilter-Ockovanie" type="text" placeholder="Ockovanie">
-                </select>
-                <select id="catbaseFilter-Hendikep" type="text" placeholder="Hendikep">
-                </select>
-                <select id="catbaseFilter-Okres" type="text" placeholder="Okres">
-                </select>
-                <select id="catbaseFilter-Utulok" type="text" placeholder="Utulok">
-                </select>
-                <button type="button" onclick="filter()">
-                    Filtruj
-                </button>
+            <div style="margin: 0 auto; display: flex; justify-content: center; min-height: 150px;">
+                <h1 style="font-family: 'Comic Sans MS', cursive, sans-serif; line-height: 150px;">Nájdime sa !
+                </h1>
+                <div class="logo" style="background-image: url(images/najdimesa.png); background-repeat: no-repeat; background-position: center center; background-size: 200px 200px; width: 150px; height: 150px;">
+                </div>
             </div>
+            
+            <div id="nastavenia-filtra" class="nastavenia-filtra zabaleny">
+                <div class="rozbalovac-filtra"  onclick="zbalARozbalFilter('nastavenia-filtra')">
+                    <div class="text-filtra">
+                        Nastavenia filtra
+                    </div>
+                    <div class="sipka"></div>
+                </div>
+                <div class="filter">
+                    <div class="kategoria"> 
+                        Meno: <input id="catbaseFilter-Meno" type="text" placeholder="Zadajte meno">
+                    </div>
+                    <div class="kategoria">
+                        Vek: <select id="catbaseFilter-Vek" type="text" placeholder="Vek">
+                        </select>
+                    </div>
+                    <div class="kategoria">
+                        Pohlavie: <select id="catbaseFilter-Pohlavie" type="text" placeholder="Pohlavie">
+                        </select>
+                    </div>
+                    <div class="kategoria">
+                        Plemeno:  <select id="catbaseFilter-Plemeno" type="text" placeholder="Plemeno">
+                        </select>
+                    </div>
+                    <div class="kategoria">
+                        Plemeno - checkbox:  <div id="catbaseFilter-PlemenoCheckbox" type="text" placeholder="Plemeno">
+                        </div>
+                    </div>
+                    <div class="kategoria">
+                        <select id="catbaseFilter-Farba" type="text" placeholder="Farba">
+                        </select>
+                    </div>
+                    <div class="kategoria">
+                        Sterilizácia: <select id="catbaseFilter-Sterilizacia" type="text" placeholder="Sterilizacia">
+                        </select>
+                    </div>
+                    <div class="kategoria">
+                        Očkovanie: <select id="catbaseFilter-Ockovanie" type="text" placeholder="Ockovanie">
+                        </select>
+                    </div>
+                    <div class="kategoria">
+                        Hendikep: <select id="catbaseFilter-Hendikep" type="text" placeholder="Hendikep">
+                        </select>
+                    </div>
+                    <div class="kategoria">
+                        <select id="catbaseFilter-Okres" type="text" placeholder="Okres">
+                        </select>
+                    </div>
+                    <div class="kategoria">
+                        <select id="catbaseFilter-Utulok" type="text" placeholder="Utulok">
+                        </select>
+                    </div>
+                    <div class="kategoria">
+                        <button type="button" onclick="filter()">
+                            Filtruj
+                        </button>
+                    </div>
+                    <div class="rozbalovac-filtra"  onclick="zbalARozbalFilter('nastavenia-filtra')">
+                        <div class="text-filtra">
+                            Nastavenia filtra
+                        </div>
+                        <div class="sipka"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <br/>
+
             <div class="table-wrapper">
                 <div id="cat-table" class="table">
                     
