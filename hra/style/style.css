@@ -250,4 +250,36 @@ body {
     margin-left: 5px; 
     margin-right: 5px; 
 }
+
+.visible-not {
+    visibility: hidden;
+}
+
+/* GAME */
+.game-buttons {
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+    display: flex;
+    flex-flow: column;
+}
+
+.game-buttons .row {
+    display: inline-block;
+}
+
+.game-buttons .button {
+    height: 2rem;
+    width: 3rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0.5rem;
+}
+
+.arrow-curve-down {
+    -webkit-transform:rotate(-180deg);
+    -moz-transform:rotate(-180deg);
+    -o-transform:rotate(-180deg);
+    transform:rotate(-180deg);
+}
 				
