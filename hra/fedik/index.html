@@ -126,10 +126,10 @@
             else if(e.keyCode == LEFT) {
                 angle += dangle;
             }
-            else if(e.keyCode == PAGEUP && yangle > -90) {
+            else if(e.keyCode == PAGEDOWN && yangle > -90) {
                 yangle -= dangle;
             }
-            else if(e.keyCode == PAGEDOWN && yangle < 90) {
+            else if(e.keyCode == PAGEUP && yangle < 90) {
                 yangle += dangle;
             }            
         }
