@@ -19,17 +19,17 @@
             <div class="row">
                 <button class="button visible-not">&#x21E7;</button>
                 <button class="button arrow arrow-up" onmousedown="onButtonPress(UP);" onmouseup="stopButtonPress();" ontouchstart="onButtonPress(UP);" ontouchend="stopButtonPress();">&#x21E7;</button>
-                <button class="button arrow arrow-curve-up" onmousedown="onButtonPress(PAGEUP);" onmouseup="stopButtonPress();" ontouchstart="onButtonPress(PAGEUP);" ontouchend="stopButtonPress();">&#x21B6;</button>
+                <button class="button arrow arrow-curve-up" onmousedown="onButtonPress(PAGEUP);" onmouseup="stopButtonPress();" ontouchstart="onButtonPress(PAGEUP);" ontouchend="stopButtonPress();" ontouchcancel="stopButtonPress();">&#x21B6;</button>
             </div>
             <div class="row">
-                <button class="button arrow arrow-left" onmousedown="onButtonPress(LEFT);" onmouseup="stopButtonPress();" ontouchstart="onButtonPress(LEFT);" ontouchend="stopButtonPress();">&#x21E6;</button>
-                <button class="button arrow arrow-reset" onclick="resetView();" >&#x2948;</button>
-                <button class="button arrow arrow-right" onmousedown="onButtonPress(RIGHT);" onmouseup="stopButtonPress();" ontouchstart="onButtonPress(RIGHT);" ontouchend="stopButtonPress();">&#x21E8;</button>
+                <button class="button arrow arrow-left" onmousedown="onButtonPress(LEFT);" onmouseup="stopButtonPress();" ontouchstart="onButtonPress(LEFT);" ontouchend="stopButtonPress();" ontouchcancel="stopButtonPress();">&#x21E6;</button>
+                <button class="button arrow arrow-reset" onclick="resetView();">&#x2948;</button>
+                <button class="button arrow arrow-right" onmousedown="onButtonPress(RIGHT);" onmouseup="stopButtonPress();" ontouchstart="onButtonPress(RIGHT);" ontouchend="stopButtonPress();" ontouchcancel="stopButtonPress();">&#x21E8;</button>
             </div>
             <div class="row">
                 <button class="button visible-not">&#x21E7;</button>
-                <button class="button arrow arrow-down" onmousedown="onButtonPress(DOWN);" onmouseup="stopButtonPress();" ontouchstart="onButtonPress(DOWN);" ontouchend="stopButtonPress();">&#x21E9;</button>
-                <button class="button arrow arrow-curve-down" onmousedown="onButtonPress(PAGEDOWN);" onmouseup="stopButtonPress();" ontouchstart="onButtonPress(PAGEDOWN);" ontouchend="stopButtonPress();">&#x21B7;</button>
+                <button class="button arrow arrow-down" onmousedown="onButtonPress(DOWN);" onmouseup="stopButtonPress();" ontouchstart="onButtonPress(DOWN);" ontouchend="stopButtonPress();" ontouchcancel="stopButtonPress();">&#x21E9;</button>
+                <button class="button arrow arrow-curve-down" onmousedown="onButtonPress(PAGEDOWN);" onmouseup="stopButtonPress();" ontouchstart="onButtonPress(PAGEDOWN);" ontouchend="stopButtonPress();" ontouchcancel="stopButtonPress();">&#x21B7;</button>
             </div>
         </div>
     </body> 
